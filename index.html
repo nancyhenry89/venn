@@ -1,11 +1,95 @@
-<html>
-  <head>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="scripts.js"></script>
-  <link href="styles.css" rel="stylesheet" type="text/css">
-  </head>
-  <body></body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simple venn.js example</title>
+<style>
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+    <div id="venn"></div>
+</body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="venn.js"></script>
+<script>
+// define sets and set set intersections
+var data=[{
+station: "3FM",
+total: 1889,
+uniqueTotal: 720,
+totalMatches: 1889,
+uniqueMatches: 720,
+topMatchSongList: [],
+matchPercentage: 1,
+matchUniquePercentage: 1
+},
+{
+station: "538",
+total: 1987,
+uniqueTotal: 694,
+totalMatches: 1077,
+uniqueMatches: 186,
+topMatchSongList: [],
+matchPercentage: 0.54,
+matchUniquePercentage: 0.27
+},
+{
+station: "QMusic",
+total: 1984,
+uniqueTotal: 702,
+totalMatches: 1079,
+uniqueMatches: 193,
+topMatchSongList: [],
+matchPercentage: 0.54,
+matchUniquePercentage: 0.27
+},
+{
+station: "Sky Radio",
+total: 2387,
+uniqueTotal: 445,
+totalMatches: 1062,
+uniqueMatches: 107,
+topMatchSongList: [],
+matchPercentage: 0.44,
+matchUniquePercentage: 0.24
+},
+{
+station: "Qmusic BE",
+total: 120,
+uniqueTotal: 114,
+totalMatches: 52,
+uniqueMatches: 47,
+topMatchSongList: [],
+matchPercentage: 0.43,
+matchUniquePercentage: 0.41
+}];
+var sets;
+
+function initSets(data){
+
+  var stationCount=data.length-1;
+  var stationSize=100/stationCount;
+
+  sets="[{sets:['"+data[0].station+"'], size:"+100+"},";
+for(var i=1;i<=stationCount;i++){
+  var percentage=data[i].matchPercentage*100;
+  stationName=data[i].station;
+  intersectionSize=stationSize*data[i].matchPercentage;
+  sets+=("{sets:['"+stationName+"'], size:"+stationSize+"},");
+  sets+=("{sets:['"+data[0].station+"','"+stationName+"'], size:"+intersectionSize+"},")
+}
+sets+=("]")
+console.log(eval(sets))
+
+}
+initSets(data);
+var chart = venn.VennDiagram();
+d3.select("#venn").datum(eval(sets)).call(chart);
+</script>
 </html>
