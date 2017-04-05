@@ -18,7 +18,7 @@
   svg{
     width: 460px;
     height: 350px;
-    transform: scale(2);
+    transform: scale(2);/*OPTION change the value to 1 for smaller graph*/
     margin-top: 200px;
     margin-left: 60px;
   }
@@ -38,125 +38,125 @@
 <script>
 // define sets and set set intersections
 var data=[{
-station: "3FM",
-total: 3716,
-uniqueTotal: 1133,
-totalMatches: 3716,
-uniqueMatches: 1133,
-topMatchSongList: [],
-matchPercentage: 1,
-matchUniquePercentage: 1
+  station: "3FM",
+  total: 3716,
+  uniqueTotal: 1133,
+  totalMatches: 3716,
+  uniqueMatches: 1133,
+  topMatchSongList: [],
+  matchPercentage: 1,
+  matchUniquePercentage: 1
 },
 {},
 {
-station: "QMusic",
-total: 3981,
-uniqueTotal: 924,
-totalMatches: 2476,
-uniqueMatches: 320,
-topMatchSongList: [],
-matchPercentage: 0.62,
-matchUniquePercentage: 0.35
+  station: "QMusic",
+  total: 3981,
+  uniqueTotal: 924,
+  totalMatches: 2476,
+  uniqueMatches: 320,
+  topMatchSongList: [],
+  matchPercentage: 0.62,
+  matchUniquePercentage: 0.35
 },
 {
-station: "Sky Radio",
-total: 4723,
-uniqueTotal: 454,
-totalMatches: 2569,
-uniqueMatches: 150,
-topMatchSongList: [],
-matchPercentage: 0.54,
-matchUniquePercentage: 0.33
+  station: "Sky Radio",
+  total: 4723,
+  uniqueTotal: 454,
+  totalMatches: 2569,
+  uniqueMatches: 150,
+  topMatchSongList: [],
+  matchPercentage: 0.54,
+  matchUniquePercentage: 0.33
 },
 {
-station: "Qmusic BE",
-total: 674,
-uniqueTotal: 393,
-totalMatches: 316,
-uniqueMatches: 156,
-topMatchSongList: [],
-matchPercentage: 0.47,
-matchUniquePercentage: 0.4
+  station: "Qmusic BE",
+  total: 674,
+  uniqueTotal: 393,
+  totalMatches: 316,
+  uniqueMatches: 156,
+  topMatchSongList: [],
+  matchPercentage: 0.47,
+  matchUniquePercentage: 0.4
 },
 {
-station: "Radio Veronica",
-total: 4064,
-uniqueTotal: 1212,
-totalMatches: 1534,
-uniqueMatches: 272,
-topMatchSongList: [],
-matchPercentage: 0.38,
-matchUniquePercentage: 0.22
+  station: "Radio Veronica",
+  total: 4064,
+  uniqueTotal: 1212,
+  totalMatches: 1534,
+  uniqueMatches: 272,
+  topMatchSongList: [],
+  matchPercentage: 0.38,
+  matchUniquePercentage: 0.22
 },
 {
-station: "FunX",
-total: 1185,
-uniqueTotal: 510,
-totalMatches: 277,
-uniqueMatches: 68,
-matchPercentage: 0.23,
-matchUniquePercentage: 0.13,
-topMatchSongList: []
+  station: "FunX",
+  total: 1185,
+  uniqueTotal: 510,
+  totalMatches: 277,
+  uniqueMatches: 68,
+  matchPercentage: 0.23,
+  matchUniquePercentage: 0.13,
+  topMatchSongList: []
 },
 {
-station: "NPO Radio 2",
-total: 3453,
-uniqueTotal: 2389,
-totalMatches: 780,
-uniqueMatches: 349,
-topMatchSongList: [],
-matchPercentage: 0.23,
-matchUniquePercentage: 0.15
+  station: "NPO Radio 2",
+  total: 3453,
+  uniqueTotal: 2389,
+  totalMatches: 780,
+  uniqueMatches: 349,
+  topMatchSongList: [],
+  matchPercentage: 0.23,
+  matchUniquePercentage: 0.15
 },
 {
-station: "PinguinRadio",
-total: 4268,
-uniqueTotal: 1454,
-totalMatches: 833,
-uniqueMatches: 181,
-matchPercentage: 0.2,
-matchUniquePercentage: 0.12,
-topMatchSongList: []
+  station: "PinguinRadio",
+  total: 4268,
+  uniqueTotal: 1454,
+  totalMatches: 833,
+  uniqueMatches: 181,
+  matchPercentage: 0.2,
+  matchUniquePercentage: 0.12,
+  topMatchSongList: []
 },
 {
-station: "100pctNL",
-total: 4301,
-uniqueTotal: 504,
-totalMatches: 750,
-uniqueMatches: 73,
-topMatchSongList: [],
-matchPercentage: 0.17,
-matchUniquePercentage: 0.14
+  station: "100pctNL",
+  total: 4301,
+  uniqueTotal: 504,
+  totalMatches: 750,
+  uniqueMatches: 73,
+  topMatchSongList: [],
+  matchPercentage: 0.17,
+  matchUniquePercentage: 0.14
 },
 {
-station: "NPO Radio 1",
-total: 569,
-uniqueTotal: 517,
-totalMatches: 89,
-uniqueMatches: 73,
-matchPercentage: 0.16,
-matchUniquePercentage: 0.14,
-topMatchSongList: []
+  station: "NPO Radio 1",
+  total: 569,
+  uniqueTotal: 517,
+  totalMatches: 89,
+  uniqueMatches: 73,
+  matchPercentage: 0.16,
+  matchUniquePercentage: 0.14,
+  topMatchSongList: []
 },
 {
-station: "Radio 10",
-total: 4102,
-uniqueTotal: 1323,
-totalMatches: 393,
-uniqueMatches: 117,
-topMatchSongList: [],
-matchPercentage: 0.1,
-matchUniquePercentage: 0.09
+  station: "Radio 10",
+  total: 4102,
+  uniqueTotal: 1323,
+  totalMatches: 393,
+  uniqueMatches: 117,
+  topMatchSongList: [],
+  matchPercentage: 0.1,
+  matchUniquePercentage: 0.09
 },
 {
-station: "BBC 6 Music",
-total: 2617,
-uniqueTotal: 1797,
-totalMatches: 151,
-uniqueMatches: 56,
-matchPercentage: 0.06,
-matchUniquePercentage: 0.03,
-topMatchSongList: []}
+  station: "BBC 6 Music",
+  total: 2617,
+  uniqueTotal: 1797,
+  totalMatches: 151,
+  uniqueMatches: 56,
+  matchPercentage: 0.06,
+  matchUniquePercentage: 0.03,
+  topMatchSongList: []}
 ];
 var sets;
 function getStationsCount(data){
@@ -164,7 +164,7 @@ function getStationsCount(data){
   var stationCount=data.length-1;
   for(var i=1;i<=stationCount;i++){
     if(data[i].total!=undefined){
-    sum+=data[i].total;
+      sum+=data[i].total;
     }
   }
   return sum;
@@ -180,11 +180,11 @@ function initSets(data){
       var stationSize=(data[i].total/count)*100;
 
 
-    var percentage=(data[i].matchPercentage*stationCount)/100;
-    stationName=data[i].station;
-    intersectionSize=stationSize*data[i].matchPercentage;
-    sets+=("{sets:['"+stationName+"'], size:"+stationSize+", per:"+data[i].matchPercentage*100+",name:'"+stationName+"'},");
-    sets+=("{sets:['"+data[0].station+"','"+stationName+"'], size:"+intersectionSize+"},")
+      var percentage=(data[i].matchPercentage*stationCount)/100;
+      stationName=data[i].station;
+      intersectionSize=stationSize*data[i].matchPercentage;
+      sets+=("{sets:['"+stationName+"'], size:"+stationSize+", per:"+data[i].matchPercentage*100+",name:'"+stationName+"'},");
+      sets+=("{sets:['"+data[0].station+"','"+stationName+"'], size:"+intersectionSize+"},")
     }
   }
   sets+=("]")
@@ -236,16 +236,16 @@ div.selectAll("g")
 
 </script>
 <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script>
-  $('text').each(function(){
-
-  	var rgb=($(this).attr('style').split('(')[1].split(')')[0])
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script>
+//OPTION comment the below script out to remove the legend
+$('text').each(function(){
+  var rgb=($(this).attr('style').split('(')[1].split(')')[0])
   console.log($(this).children('tspan').text())
   $('#legend').append("<div style='color:rgb("+rgb+")'>"+$(this).children('tspan').text()+"</div>")
   $('text').hide();
-  });
-  </script>
+});
+</script>
 </html>
