@@ -24,61 +24,134 @@
 <script>
 // define sets and set set intersections
 var data=[{
-  station: "3FM",
-  total: 1889,
-  uniqueTotal: 720,
-  totalMatches: 1889,
-  uniqueMatches: 720,
-  topMatchSongList: [],
-  matchPercentage: 1,
-  matchUniquePercentage: 1
+station: "3FM",
+total: 3716,
+uniqueTotal: 1133,
+totalMatches: 3716,
+uniqueMatches: 1133,
+topMatchSongList: [],
+matchPercentage: 1,
+matchUniquePercentage: 1
+},
+{},
+{
+station: "QMusic",
+total: 3981,
+uniqueTotal: 924,
+totalMatches: 2476,
+uniqueMatches: 320,
+topMatchSongList: [],
+matchPercentage: 0.62,
+matchUniquePercentage: 0.35
 },
 {
-  station: "538",
-  total: 1987,
-  uniqueTotal: 694,
-  totalMatches: 1077,
-  uniqueMatches: 186,
-  topMatchSongList: [],
-  matchPercentage: 0.24,
-  matchUniquePercentage: 0.27
+station: "Sky Radio",
+total: 4723,
+uniqueTotal: 454,
+totalMatches: 2569,
+uniqueMatches: 150,
+topMatchSongList: [],
+matchPercentage: 0.54,
+matchUniquePercentage: 0.33
 },
 {
-  station: "QMusic",
-  total: 1984,
-  uniqueTotal: 702,
-  totalMatches: 1079,
-  uniqueMatches: 193,
-  topMatchSongList: [],
-  matchPercentage: 0.78,
-  matchUniquePercentage: 0.27
+station: "Qmusic BE",
+total: 674,
+uniqueTotal: 393,
+totalMatches: 316,
+uniqueMatches: 156,
+topMatchSongList: [],
+matchPercentage: 0.47,
+matchUniquePercentage: 0.4
 },
 {
-  station: "Sky Radio",
-  total: 2387,
-  uniqueTotal: 445,
-  totalMatches: 1062,
-  uniqueMatches: 107,
-  topMatchSongList: [],
-  matchPercentage: 0.44,
-  matchUniquePercentage: 0.24
+station: "Radio Veronica",
+total: 4064,
+uniqueTotal: 1212,
+totalMatches: 1534,
+uniqueMatches: 272,
+topMatchSongList: [],
+matchPercentage: 0.38,
+matchUniquePercentage: 0.22
 },
 {
-  station: "Qmusic BE",
-  total: 120,
-  uniqueTotal: 114,
-  totalMatches: 52,
-  uniqueMatches: 47,
-  topMatchSongList: [],
-  matchPercentage: 0.10,
-  matchUniquePercentage: 0.41
-}];
+station: "FunX",
+total: 1185,
+uniqueTotal: 510,
+totalMatches: 277,
+uniqueMatches: 68,
+matchPercentage: 0.23,
+matchUniquePercentage: 0.13,
+topMatchSongList: []
+},
+{
+station: "NPO Radio 2",
+total: 3453,
+uniqueTotal: 2389,
+totalMatches: 780,
+uniqueMatches: 349,
+topMatchSongList: [],
+matchPercentage: 0.23,
+matchUniquePercentage: 0.15
+},
+{
+station: "PinguinRadio",
+total: 4268,
+uniqueTotal: 1454,
+totalMatches: 833,
+uniqueMatches: 181,
+matchPercentage: 0.2,
+matchUniquePercentage: 0.12,
+topMatchSongList: []
+},
+{
+station: "100pctNL",
+total: 4301,
+uniqueTotal: 504,
+totalMatches: 750,
+uniqueMatches: 73,
+topMatchSongList: [],
+matchPercentage: 0.17,
+matchUniquePercentage: 0.14
+},
+{
+station: "NPO Radio 1",
+total: 569,
+uniqueTotal: 517,
+totalMatches: 89,
+uniqueMatches: 73,
+matchPercentage: 0.16,
+matchUniquePercentage: 0.14,
+topMatchSongList: []
+},
+{
+station: "Radio 10",
+total: 4102,
+uniqueTotal: 1323,
+totalMatches: 393,
+uniqueMatches: 117,
+topMatchSongList: [],
+matchPercentage: 0.1,
+matchUniquePercentage: 0.09
+},
+{
+station: "BBC 6 Music",
+total: 2617,
+uniqueTotal: 1797,
+totalMatches: 151,
+uniqueMatches: 56,
+matchPercentage: 0.06,
+matchUniquePercentage: 0.03,
+topMatchSongList: []}
+];
 var sets;
 function getStationsCount(data){
   var sum=0;
   var stationCount=data.length-1;
   for(var i=1;i<=stationCount;i++){
+    if(data[i].total!=undefined){
     sum+=data[i].total;
+    }
   }
   return sum;
 }
@@ -89,12 +162,16 @@ function initSets(data){
 
   sets="[{sets:['"+data[0].station+"'], size:"+100+"},";
   for(var i=1;i<=stationCount;i++){
-    var stationSize=(data[i].total/count)*100;
+    if(data[i].total!=undefined){
+      var stationSize=(data[i].total/count)*100;
+
+
     var percentage=(data[i].matchPercentage*stationCount)/100;
     stationName=data[i].station;
     intersectionSize=stationSize*data[i].matchPercentage;
     sets+=("{sets:['"+stationName+"'], size:"+stationSize+", per:"+data[i].matchPercentage*100+"},");
     sets+=("{sets:['"+data[0].station+"','"+stationName+"'], size:"+intersectionSize+"},")
+    }
   }
   sets+=("]")
   console.log(eval(sets))
