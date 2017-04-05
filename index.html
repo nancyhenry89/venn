@@ -8,23 +8,29 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
   }
+  #legend{
+    float: left;
+    padding: 90px;
+  }
   .venntooltip {
     position: absolute;
   }
   svg{
     width: 460px;
-    width: 460px;
     height: 350px;
     transform: scale(2);
-    margin-top: 190px;
-    margin-left: 310px;
+    margin-top: 200px;
+    margin-left: 60px;
   }
 
   </style>
 </head>
 
 <body>
-  <div id="venn"></div>
+  <div id="venn">
+    <div id="legend"></div>
+  </div>
+
 </body>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -168,7 +174,7 @@ function initSets(data){
   var stationCount=data.length-1;
 
 
-  sets="[{sets:['"+data[0].station+"'], size:"+100+"},";
+  sets="[{sets:['"+data[0].station+"'], size:"+100+",name:'"+data[0].station+"'},";
   for(var i=1;i<=stationCount;i++){
     if(data[i].total!=undefined){
       var stationSize=(data[i].total/count)*100;
@@ -177,12 +183,11 @@ function initSets(data){
     var percentage=(data[i].matchPercentage*stationCount)/100;
     stationName=data[i].station;
     intersectionSize=stationSize*data[i].matchPercentage;
-    sets+=("{sets:['"+stationName+"'], size:"+stationSize+", per:"+data[i].matchPercentage*100+"},");
+    sets+=("{sets:['"+stationName+"'], size:"+stationSize+", per:"+data[i].matchPercentage*100+",name:'"+stationName+"'},");
     sets+=("{sets:['"+data[0].station+"','"+stationName+"'], size:"+intersectionSize+"},")
     }
   }
   sets+=("]")
-  console.log(eval(sets))
 
 }
 initSets(data);
@@ -202,10 +207,10 @@ div.selectAll("g")
   // Display a tooltip with the current size
   tooltip.transition().duration(400).style("opacity", .9);
   if(d.per!=undefined){
-    tooltip.text(d.per + " %");
+    tooltip.text(d.per + "% " +d.name);
   }
   else{
-    tooltip.text(" ")
+    tooltip.text(d.name)
   }
   // highlight the current path
   var selection = d3.select(this).transition("tooltip").duration(400);
@@ -228,5 +233,19 @@ div.selectAll("g")
   .style("fill-opacity", d.sets.length == 1 ? .25 : .0)
   .style("stroke-opacity", 0);
 });
+
 </script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+  $('text').each(function(){
+
+  	var rgb=($(this).attr('style').split('(')[1].split(')')[0])
+  console.log($(this).children('tspan').text())
+  $('#legend').append("<div style='color:rgb("+rgb+")'>"+$(this).children('tspan').text()+"</div>")
+  $('text').hide();
+  });
+  </script>
 </html>
